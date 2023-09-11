@@ -2,8 +2,8 @@ import express from "express";
 import dotenv from "dotenv";
 import database from "./config/db.js";
 // Routes
-import userRouter from "./routers/user.js";
-import adminRouter from "./routers/admin.js";
+import authRouter from "./routers/auth.js";
+import hotelsRouter from "./routers/hotels.js";
 
 const app = express();
 dotenv.config();
@@ -18,8 +18,8 @@ app.listen(PORT, async () => {
 
 app.use(express.json());
 
-app.use("/api/user", userRouter);
-app.use("/api/admin", adminRouter);
+app.use("/api/auth", authRouter);
+app.use("/api/hotels", hotelsRouter);
 
 //error handling middleware
 app.use((err, req, res, next) => {

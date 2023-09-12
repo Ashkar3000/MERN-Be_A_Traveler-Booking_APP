@@ -3,16 +3,19 @@ import * as controller from "../controllers/hotel.js"
 
 const router = express.Router();
 
-//HOTEL
-//CREATE HOTEL
+//createHotel 
 router.post("/", controller.createHotel);
-//UPDATE HOTEL
+
+//updateHotel 
 router.put("/:id", controller.updateHotel);
-//DELETE HOTEL
+
+//deleteHotel 
 router.delete("/:id",controller.deleteHotel);
-//GET HOTEL
+
+//getHotel 
 router.get("/:id", controller.getHotel);
-//GET ALL HOTEL
+
+//getAllHotels 
 router.get("/", controller.getAllHotels);
 
 

@@ -1,11 +1,13 @@
 import express from "express";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
+
 // Routes
 import database from "./config/db.js";
 import authRouter from "./routers/auth.js";
 import hotelsRouter from "./routers/hotels.js";
 import userRouter from "./routers/user.js"
+import roomRouter from "./routers/room.js"
 
 const app = express();
 dotenv.config();
@@ -25,6 +27,7 @@ app.use(express.json());
 app.use("/api/auth", authRouter);
 app.use("/api/hotels", hotelsRouter);
 app.use("/api/user", userRouter);
+app.use("/api/room", roomRouter);
 
 //error handling middleware
 app.use((err, req, res, next) => {

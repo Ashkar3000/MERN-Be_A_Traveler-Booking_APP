@@ -36,7 +36,7 @@ export const login = async (req, res, next) => {
         {id:user._id, isAdmin:user.isAdmin},process.env.JWT)
 
       const{ password, isAdmin, ...otherdetails} = user._doc
-console.log(token)
+
         res.cookie("access_token",token,{
           httpOnly:true,
         })

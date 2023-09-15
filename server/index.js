@@ -27,7 +27,7 @@ app.use(express.json());
 app.use("/api/auth", authRouter);
 app.use("/api/hotels", hotelsRouter);
 app.use("/api/user", userRouter);
-app.use("/api/room", roomRouter);
+app.use("/api/rooms", roomRouter);
 
 //error handling middleware
 app.use((err, req, res, next) => {

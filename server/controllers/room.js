@@ -15,12 +15,11 @@ export const createRoom = async (req, res, next) => {
     } catch (error) {
       next(error);
     }
-    res.status(200).jsom(savedRoom);
+    res.status(200).json(savedRoom);
   } catch (error) {
     next(error);
   }
 };
-
 
 export const updateRoom = async (req, res, next) => {
     try {
@@ -36,9 +35,17 @@ export const updateRoom = async (req, res, next) => {
 }
 
 export const deleteRoom = async(req, res, next) => {
+  const hotelId = req.params.hotelid;
     try {
         await Room.findByIdAndDelete(req.params.id)
-        res.status(200).jsom("Room is deleted")
+        try {
+            await Hotel.findByIdAndUpdate(hotelId, {
+              $pull: { rooms:req.params.id },
+            });
+          } catch (error) {
+            next(error);
+          }
+        res.status(200).json("Room is deleted")
     } catch (error) {
         next(error)
     }

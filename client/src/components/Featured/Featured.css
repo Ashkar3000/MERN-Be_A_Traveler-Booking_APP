@@ -1,0 +1,27 @@
+.feartued{
+    width: 100%;
+    max-width: 1100px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    z-index: 1;
+}
+
+.feartuedItem {
+    position: relative;
+    color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 250px;
+}
+
+.feartuedImg{
+    width: 100%;
+    object-fit: cover;
+}
+
+.feartuedTitles{
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
